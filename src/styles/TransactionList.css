@@ -1,0 +1,66 @@
+/* ============================================
+   TRANSACTION LIST
+   ============================================ */
+.transaction-list {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.transaction-list__header {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transaction-list__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.transaction-list__title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--accent-purple);
+  border-radius: 2px;
+}
+
+.transaction-list__count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+/* List body */
+.transaction-list__body {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+/* Empty state */
+.transaction-list__empty {
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.transaction-list__empty-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}

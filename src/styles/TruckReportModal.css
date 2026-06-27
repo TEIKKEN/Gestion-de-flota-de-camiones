@@ -1,0 +1,130 @@
+.truck-report {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  animation: modal-in 0.25s ease;
+  overflow: hidden;
+}
+
+.truck-report__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-xl);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.truck-report__label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.truck-report__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.truck-report__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin: var(--space-xl);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.report-card {
+  background: var(--bg-card);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.report-card__label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.report-card__value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.report-card__sub { font-size: 0.75rem; color: var(--text-muted); }
+
+.report-card--income  .report-card__value { color: var(--accent-green); }
+.report-card--expense .report-card__value { color: var(--accent-red); }
+.report-card--profit  .report-card__value { color: var(--accent-green); }
+.report-card--loss    .report-card__value { color: var(--accent-red); }
+
+.truck-report__top-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 var(--space-xl) var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.truck-report__top-cat strong { color: var(--text-primary); }
+
+.truck-report__empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: var(--space-xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .truck-report {
+    width: 95%;
+    max-width: none;
+  }
+
+  .truck-report__header {
+    padding: var(--space-lg);
+  }
+
+  .truck-report__grid {
+    grid-template-columns: 1fr;
+    margin: var(--space-lg);
+  }
+
+  .truck-report__name {
+    font-size: 1.1rem;
+  }
+
+  .report-card {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .report-card__value {
+    font-size: 1rem;
+  }
+
+  .truck-report__top-cat {
+    margin: 0 var(--space-lg) var(--space-lg);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}

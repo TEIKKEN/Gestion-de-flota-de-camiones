@@ -1,0 +1,197 @@
+/* ============================================
+   TRANSACTION ITEM
+   ============================================ */
+.transaction-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-xl);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+  flex-wrap: wrap;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Category icon pill */
+.transaction-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: var(--bg-input);
+}
+
+/* Info */
+.transaction-item__info {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.transaction-item__description {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-item__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 2px;
+}
+
+.transaction-item__category {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.transaction-item__date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.transaction-item__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Amount */
+.transaction-item__amount {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.transaction-item__amount--income  { color: var(--accent-green); }
+.transaction-item__amount--expense { color: var(--accent-red); }
+
+/* Delete button (visible en hover) */
+.transaction-item__delete {
+  opacity: 0;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.transaction-item:hover .transaction-item__delete {
+  opacity: 1;
+}
+
+.transaction-item__delete:hover {
+  background: rgba(255, 77, 106, 0.1);
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+/* Placa / badge del camión */
+.transaction-item__truck {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+}
+
+/* Contenedor de acciones */
+.transaction-item__actions {
+  display: flex;
+  gap: var(--space-xs);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.transaction-item:hover .transaction-item__actions { opacity: 1; }
+
+.transaction-item__edit {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.transaction-item__edit:hover {
+  background: rgba(61,104,255,0.1);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+@media (max-width: 900px) {
+  .transaction-item {
+    padding: var(--space-md) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .transaction-item__description {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  .transaction-item__meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .transaction-item__amount {
+    order: 3;
+    width: 100%;
+    text-align: left;
+    margin-top: var(--space-sm);
+  }
+
+  .transaction-item__actions {
+    order: 4;
+    width: 100%;
+    opacity: 1;
+    justify-content: flex-start;
+    margin-top: var(--space-sm);
+  }
+
+  .transaction-item__actions button {
+    min-width: 52px;
+  }
+}
+
+@media (max-width: 640px) {
+  .transaction-item {
+    gap: var(--space-sm);
+  }
+
+  .transaction-item__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .transaction-item__amount {
+    font-size: 0.9rem;
+  }
+}

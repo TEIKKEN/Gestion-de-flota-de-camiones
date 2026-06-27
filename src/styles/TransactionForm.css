@@ -1,0 +1,167 @@
+/* ============================================
+   TRANSACTION FORM
+   ============================================ */
+.transaction-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  position: sticky;
+  top: 80px;
+}
+
+.transaction-form__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.transaction-form__title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+}
+
+/* Type toggle */
+.transaction-form__type-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  background: var(--bg-input);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.type-btn {
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.type-btn--income.active {
+  background: rgba(34, 201, 135, 0.15);
+  color: var(--accent-green);
+  box-shadow: 0 2px 8px rgba(34, 201, 135, 0.15);
+}
+
+.type-btn--expense.active {
+  background: rgba(255, 77, 106, 0.15);
+  color: var(--accent-red);
+  box-shadow: 0 2px 8px rgba(255, 77, 106, 0.15);
+}
+
+/* Field groups */
+.transaction-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.form-group input,
+.form-group select {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px var(--space-md);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(61, 104, 255, 0.12);
+}
+
+.form-group select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* Submit button */
+.transaction-form__submit {
+  width: 100%;
+  margin-top: var(--space-lg);
+  padding: 12px var(--space-md);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-dim));
+  border: none;
+  border-radius: var(--radius-md);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(61, 104, 255, 0.35);
+}
+
+.transaction-form__submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.transaction-form__submit:active {
+  transform: translateY(0);
+}
+ /* Mensaje de error */
+.transaction-form__error {
+  color: var(--accent-red);
+  font-size: 0.8rem;
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 77, 106, 0.08);
+  border: 1px solid rgba(255, 77, 106, 0.2);
+  border-radius: var(--radius-sm);
+}
+/* Etiqueta opcional */
+.optional {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Botón de ingreso en verde */
+.transaction-form__submit--income {
+  background: linear-gradient(135deg, var(--accent-green), #1aab72);
+  box-shadow: 0 4px 16px rgba(34, 201, 135, 0.35);
+}

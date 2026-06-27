@@ -1,0 +1,169 @@
+/* ============================================
+   SUMMARY CARDS
+   ============================================ */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Accent line at top */
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.summary-card--balance::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); }
+.summary-card--income::before  { background: var(--accent-green); }
+.summary-card--expense::before { background: var(--accent-red); }
+
+/* Glow overlay */
+.summary-card--balance { box-shadow: var(--shadow-card), 0 0 40px rgba(61, 104, 255, 0.08); }
+.summary-card--income  { box-shadow: var(--shadow-card), var(--shadow-glow-green); }
+.summary-card--expense { box-shadow: var(--shadow-card), var(--shadow-glow-red); }
+
+/* Row: label + icon */
+.summary-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-card__label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.summary-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.summary-card--balance .summary-card__icon { background: rgba(61, 104, 255, 0.15); }
+.summary-card--income  .summary-card__icon { background: rgba(34, 201, 135, 0.15); }
+.summary-card--expense .summary-card__icon { background: rgba(255, 77, 106, 0.15); }
+
+/* Amount */
+.summary-card__amount {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.summary-card--balance .summary-card__amount { color: var(--text-primary); }
+.summary-card--income  .summary-card__amount { color: var(--accent-green); }
+.summary-card--expense .summary-card__amount { color: var(--accent-red); }
+
+/* Footer hint */
+.summary-card__hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .summary-card__amount { font-size: 1.6rem; }
+}
+ /* Tarjetas nuevas para flota */
+.summary-card--fuel::before        { background: #f59e0b; }
+.summary-card--maintenance::before { background: #22c987; }
+.summary-card--salary::before      { background: #06b6d4; }
+
+.summary-card--fuel        { box-shadow: var(--shadow-card), 0 0 30px rgba(245,158,11,0.1); }
+.summary-card--maintenance { box-shadow: var(--shadow-card), 0 0 30px rgba(34,201,135,0.1); }
+.summary-card--salary      { box-shadow: var(--shadow-card), 0 0 30px rgba(6,182,212,0.1); }
+
+.summary-card--fuel        .summary-card__icon { background: rgba(245,158,11,0.15); }
+.summary-card--maintenance .summary-card__icon { background: rgba(34,201,135,0.15); }
+.summary-card--salary      .summary-card__icon { background: rgba(6,182,212,0.15); }
+
+.summary-card--fuel        .summary-card__amount { color: #f59e0b; }
+.summary-card--maintenance .summary-card__amount { color: #22c987; }
+.summary-card--salary      .summary-card__amount { color: #06b6d4; }
+
+/* 4 columnas en el grid */
+@media (min-width: 769px) {
+  .summary-cards { grid-template-columns: repeat(4, 1fr); }
+}
+/* Grilla de 6 tarjetas para flota completa */
+.summary-cards--fleet {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Utilidad neta */
+.summary-card--profit-pos::before { background: var(--accent-green); }
+.summary-card--profit-neg::before { background: var(--accent-red); }
+
+.summary-card--profit-pos { box-shadow: var(--shadow-card), var(--shadow-glow-green); }
+.summary-card--profit-neg { box-shadow: var(--shadow-card), var(--shadow-glow-red); }
+
+.summary-card--profit-pos .summary-card__icon { background: rgba(34,201,135,0.15); }
+.summary-card--profit-neg .summary-card__icon { background: rgba(255,77,106,0.15); }
+
+.summary-card--profit-pos .summary-card__amount { color: var(--accent-green); }
+.summary-card--profit-neg .summary-card__amount { color: var(--accent-red); }
+
+/* Desglose dentro de la tarjeta */
+.summary-card__breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: var(--space-xs);
+}
+
+.summary-card__breakdown span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.summary-card__breakdown strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Responsive: 2 columnas en tablet, 1 en móvil */
+@media (max-width: 1024px) {
+  .summary-cards--fleet { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .summary-cards--fleet { grid-template-columns: 1fr; }
+}

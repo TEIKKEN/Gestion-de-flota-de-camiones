@@ -1,0 +1,91 @@
+/* ============================================
+   EXPENSE CHART
+   ============================================ */
+.expense-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.chart-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.chart-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.expense-chart__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.expense-chart__title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+
+.chart-section--bar .expense-chart__title::before {
+  background: var(--accent-blue);
+}
+
+.expense-chart__subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.expense-chart__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.expense-chart__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.legend-item__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.legend-item__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item__name { font-size: 0.83rem; color: var(--text-secondary); }
+.legend-item__pct  { font-size: 0.83rem; font-weight: 600; color: var(--text-primary); font-family: var(--font-display); }
+
+@media (max-width: 768px) {
+  .expense-chart__body { grid-template-columns: 1fr; }
+}

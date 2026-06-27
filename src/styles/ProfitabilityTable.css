@@ -1,0 +1,155 @@
+/* ============================================
+   PROFITABILITY TABLE
+   ============================================ */
+.profit-table {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.profit-table__header {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.profit-table__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.profit-table__title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--accent-green);
+  border-radius: 2px;
+}
+
+/* Badges de indicadores */
+.profit-table__badges {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.profit-badge {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.profit-badge--green {
+  color: var(--accent-green);
+  border-color: rgba(34,201,135,0.3);
+  background: rgba(34,201,135,0.08);
+}
+
+.profit-badge--blue {
+  color: var(--accent-blue);
+  border-color: rgba(61,104,255,0.3);
+  background: rgba(61,104,255,0.08);
+}
+
+.profit-badge--red {
+  color: var(--accent-red);
+  border-color: rgba(255,77,106,0.3);
+  background: rgba(255,77,106,0.08);
+}
+
+/* Tabla */
+.profit-table__body {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead tr {
+  background: var(--bg-input);
+}
+
+thead th {
+  padding: var(--space-sm) var(--space-lg);
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--bg-card-hover); }
+
+tfoot tr {
+  background: var(--bg-input);
+  border-top: 2px solid var(--border);
+}
+
+td {
+  padding: var(--space-md) var(--space-lg);
+  color: var(--text-secondary);
+}
+
+.col-truck   { color: var(--text-primary); font-weight: 500; }
+.col-income  { color: var(--accent-green); font-weight: 500; }
+.col-expense { color: var(--accent-red);   font-weight: 500; }
+.col-profit.pos { color: var(--accent-green); font-weight: 600; }
+.col-profit.neg { color: var(--accent-red);   font-weight: 600; }
+
+/* Barra de rentabilidad */
+.col-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 120px;
+}
+
+.profit-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-input);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.profit-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.profit-bar--pos { background: var(--accent-green); }
+.profit-bar--neg { background: var(--accent-red); }
+
+.profit-pct {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 36px;
+  text-align: right;
+}
+
+.profit-pct.pos { color: var(--accent-green); }
+.profit-pct.neg { color: var(--accent-red); }
