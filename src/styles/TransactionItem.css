@@ -125,7 +125,15 @@
   transition: opacity 0.15s ease;
 }
 
-.transaction-item:hover .transaction-item__actions { opacity: 1; }
+.transaction-item:hover .transaction-item__actions {
+  opacity: 1;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .transaction-item__actions {
+    opacity: 1;
+  }
+}
 
 .transaction-item__edit {
   background: none;
@@ -138,7 +146,8 @@
   transition: all 0.15s ease;
 }
 
-.transaction-item__edit:hover {
+.transaction-item__edit:hover,
+.transaction-item__edit:focus-visible {
   background: rgba(61,104,255,0.1);
   border-color: var(--accent-blue);
   color: var(--accent-blue);
@@ -174,6 +183,19 @@
     opacity: 1;
     justify-content: flex-start;
     margin-top: var(--space-sm);
+  }
+
+  .transaction-item__delete {
+    opacity: 1;
+    background: rgba(255, 77, 106, 0.1);
+    border-color: rgba(255, 77, 106, 0.25);
+    color: var(--accent-red);
+  }
+
+  .transaction-item__edit {
+    background: rgba(61,104,255,0.08);
+    border-color: rgba(61,104,255,0.2);
+    color: var(--accent-blue);
   }
 
   .transaction-item__actions button {

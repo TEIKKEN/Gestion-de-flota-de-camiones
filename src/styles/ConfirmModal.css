@@ -22,6 +22,8 @@
   padding: var(--space-2xl);
   max-width: 400px;
   width: 90%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   text-align: center;
   box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   animation: modal-in 0.25s ease;
@@ -54,11 +56,12 @@
 }
 
 .modal__btn--cancel {
-  background: transparent;
-  color: var(--text-secondary);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border);
 }
 .modal__btn--cancel:hover {
-  background: var(--bg-input);
+  background: var(--bg-card-hover);
   color: var(--text-primary);
 }
 

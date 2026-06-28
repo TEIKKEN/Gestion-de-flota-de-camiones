@@ -80,7 +80,22 @@
   white-space: nowrap;
 }
 
-.vehicle-manager__add button:hover {
+.vehicle-manager__add button {
+  padding: 8px 16px;
+  background: rgba(61,104,255,0.18);
+  border: 1px solid rgba(61,104,255,0.3);
+  border-radius: var(--radius-md);
+  color: var(--accent-blue);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.vehicle-manager__add button:hover,
+.vehicle-manager__add button:focus-visible {
   background: var(--accent-blue);
   color: #fff;
 }
